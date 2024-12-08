@@ -8,7 +8,7 @@ Widget Messagebox(image, String? Name, String? username, String? message) {
     margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
     padding: const EdgeInsets.all(12),
     decoration: BoxDecoration(
-      color: Color.fromARGB(255, 5, 249, 220),
+      color: boxcolor,
       borderRadius: BorderRadius.circular(12),
     ),
     child: Column(
@@ -20,14 +20,14 @@ Widget Messagebox(image, String? Name, String? username, String? message) {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              "$Name".text.bold.size(12).color(textColor).make(),
+              "$Name".text.bold.size(12).color(textinBox).make(),
               5.heightBox,
-              "$username".text.size(8).color(textColor).make(),
+              "$username".text.size(8).color(textinBox).make(),
             ],
           ),
         ]),
         10.heightBox,
-        "$message".text.size(10).bold.make()
+        "$message".text.size(10).color(textinBox).bold.make()
       ],
     ),
   );

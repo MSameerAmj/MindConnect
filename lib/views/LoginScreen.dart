@@ -5,7 +5,10 @@ import 'package:mindconnect/common%20widgets/background.dart';
 import 'package:mindconnect/common%20widgets/customButton.dart';
 import 'package:mindconnect/common%20widgets/customtextBox.dart';
 import 'package:mindconnect/consts/strings.dart';
+import 'package:mindconnect/views/ExcercisesScreen.dart';
+import 'package:mindconnect/views/ExerciseSectionScreen.dart';
 import 'package:mindconnect/views/ForumScreen.dart';
+import 'package:mindconnect/views/Home.dart';
 import 'package:mindconnect/views/SignupScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -63,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                     Title: Login,
                     textColor: textColor,
                     onpress: () {
-                      Get.offAll(() => const Forumscreen());
+                      Get.offAll(() => const Home());
                     }).box.width(context.screenWidth - 50).make(),
               ],
             )

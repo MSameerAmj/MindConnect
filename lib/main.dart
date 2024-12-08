@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mindconnect/views/LoginScreen.dart';
-import 'package:mindconnect/views/SignupScreen.dart';
 import 'consts/strings.dart';
 
 void main() {

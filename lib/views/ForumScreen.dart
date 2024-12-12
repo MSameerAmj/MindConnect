@@ -29,7 +29,8 @@ class Forumscreen extends StatelessWidget {
                     (index) => Messagebox(userdummyimg, dummyusers[index],
                         dummyusernames[index], dummymessages[index])),
               ),
-            )
+            ),
+            
           ],
         ),
       ),

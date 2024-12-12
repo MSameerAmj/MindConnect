@@ -5,6 +5,7 @@ import 'package:mindconnect/common%20widgets/background.dart';
 import 'package:mindconnect/common%20widgets/customButton.dart';
 import 'package:mindconnect/common%20widgets/customtextBox.dart';
 import 'package:mindconnect/consts/strings.dart';
+import 'package:mindconnect/controllers/authController.dart';
 import 'package:mindconnect/views/ExcercisesScreen.dart';
 import 'package:mindconnect/views/ExerciseSectionScreen.dart';
 import 'package:mindconnect/views/ForumScreen.dart';
@@ -22,6 +23,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(Authcontroller());
     return background(Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
@@ -39,10 +41,17 @@ class _LoginPageState extends State<LoginPage> {
             20.heightBox,
             Column(
               children: [
-                CustomTextbox(hint: emailHint, title: email, ispass: false),
+                CustomTextbox(
+                    hint: emailHint,
+                    title: email,
+                    ispass: false,
+                    controller: controller.emailContorller),
                 5.heightBox,
                 CustomTextbox(
-                    title: password, hint: passwordHint, ispass: true),
+                    title: password,
+                    hint: passwordHint,
+                    ispass: true,
+                    controller: controller.passwordcontroller),
                 10.heightBox,
                 10.heightBox,
                 RichText(
@@ -61,13 +70,27 @@ class _LoginPageState extends State<LoginPage> {
                   Get.to(() => const Signupscreen());
                 }),
                 20.heightBox,
-                customButton(
-                    color: const Color.fromARGB(255, 68, 239, 74),
-                    Title: Login,
-                    textColor: textColor,
-                    onpress: () {
-                      Get.offAll(() => const Home());
-                    }).box.width(context.screenWidth - 50).make(),
+                controller.isloading.value
+                    ? const CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation(Colors.red),
+                      )
+                    : customButton(
+                        color: const Color.fromARGB(255, 68, 239, 74),
+                        Title: Login,
+                        textColor: textColor,
+                        onpress: () async {
+                          controller.isloading(true);
+                          await controller
+                              .loginmethod(context: context)
+                              .then((value) {
+                            if (value != null) {
+                              VxToast.show(context, msg: "loggedin");
+                              Get.offAll(() => const Home());
+                            } else {
+                              controller.isloading(false);
+                            }
+                          });
+                        }).box.width(context.screenWidth - 50).make(),
               ],
             )
                 .box

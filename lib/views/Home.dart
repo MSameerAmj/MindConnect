@@ -46,7 +46,7 @@ class Home extends StatelessWidget {
       const Homescreen(),
       const Excercisesscreen(),
       const Forumscreen(),
-      const Profilescreen()
+      const Profilescreen(email: usersemail, name: usersname)
     ];
     return Scaffold(
       body: Column(

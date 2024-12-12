@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mindconnect/consts/images.dart';
 
@@ -92,3 +93,13 @@ const home = "Home",
     activity = "Activities",
     forum = "Forum",
     profile = "Profile";
+
+const profileScreen = "Your Profile";
+const youremail = "Your Email:", yourname = "Your Name";
+const yourTimeline = "Your Timelines";
+const usersname = "Mehroz";
+const usersemail = "Mehroz@gmail.com";
+
+FirebaseAuth auth = FirebaseAuth.instance;
+
+User? currentUser = auth.currentUser;

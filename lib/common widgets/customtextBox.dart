@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mindconnect/consts/strings.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-Widget CustomTextbox({String? title, String? hint, ispass}) {
+Widget CustomTextbox({String? title, String? hint, ispass, controller}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -10,6 +10,7 @@ Widget CustomTextbox({String? title, String? hint, ispass}) {
       5.heightBox,
       TextFormField(
         obscureText: ispass,
+        controller: controller,
         decoration: InputDecoration(
             hintStyle: const TextStyle(
               color: Colors.grey,
